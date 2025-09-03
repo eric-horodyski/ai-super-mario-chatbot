@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .font-arcade {
+    font-family: "Sixtyfour", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BLED" 0,
+      "SCAN" -14;
+    letter-spacing: -5px;
+    text-shadow: 4px 4px 0 #000;
+
+  }
+}
+@layer base {
+  :root {
+    --bg-bricks-red-mortar: #CF4212;
+    --bg-bricks-red-light: #BF370B;
+    --bg-bricks-red-dark: #AD2E09;
+
+    --bg-bricks-blue-mortar: #27405E;
+    --bg-bricks-blue-light: #1D3654;
+    --bg-bricks-blue-dark: #19304B;
+
+    --mortar: var(--bg-bricks-red-mortar);
+    --brick-light: var(--bg-bricks-red-light);
+    --brick-dark: var(--bg-bricks-red-dark);
+
+  }
+}
+
+@layer utilities {
+  .bg-bricks {
+    background-color: var(--mortar);
+    background-image: 
+      linear-gradient(335deg, var(--brick-dark) 23px, transparent 23px),
+      linear-gradient(155deg, var(--brick-light) 23px, transparent 23px),
+      linear-gradient(335deg, var(--brick-dark) 23px, transparent 23px),
+      linear-gradient(155deg, var(--brick-light) 23px, transparent 23px);
+    background-size: 58px 58px;
+    background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+  }
+
+  .bg-bricks-blue {
+    --mortar: var(--bg-bricks-blue-mortar);
+    --brick-light: var(--bg-bricks-blue-light);
+    --brick-dark: var(--bg-bricks-blue-dark);
+  }
+
+  .inner-frame {
+    @apply m-4 w-full max-w-[600px] rounded-xl border-4 border-red-800 
+           bg-black/10 backdrop-blur-sm 
+           shadow-[4px_4px_0px_#000];
+  }
+}
